@@ -1,13 +1,12 @@
-﻿using GroceryDelivery.BusinessLayer.Features.Order.Commands.Create;
-using GroceryDelivery.Entites;
+﻿using GroceryDelivery.Entites;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GroceryDelivery.BusinessLayer.Persistence
+namespace GroceryDelivery.BusinessLayer.Persistence.Services
 {
-    public interface IGroceryRepository
+    public interface IGroceryServices
     {
         Task<Product> AddProduct(Product product);
         Task<ApplicationUser> PlaceOrder(ApplicationUser user);

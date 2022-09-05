@@ -1,4 +1,5 @@
 using GroceryDelivery.BusinessLayer.Persistence;
+using GroceryDelivery.BusinessLayer.Repositories;
 using GroceryDelivery.DataLayer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -8,10 +9,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Reflection;
+using GroceryDelivery.BusinessLayer.Persistence.Services;
 
 namespace GroceryDelivery
 {
@@ -30,9 +34,12 @@ namespace GroceryDelivery
             services.AddControllersWithViews();
             services.AddSwaggerGen();
             services.AddHttpClient();
+            services.AddAutoMapper(typeof(Startup).Assembly);
+            services.AddMediatR(AppDomain.CurrentDomain.GetAssemblies());
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddDbContext<GroceryDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ConnStr")));
-         
+            services.AddScoped<IGroceryRepository, GroceryRepository>();
+            services.AddScoped<IGroceryServices, GroceryServices>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
