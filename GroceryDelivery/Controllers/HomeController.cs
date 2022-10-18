@@ -48,9 +48,8 @@ namespace GroceryDelivery.Controllers
         [Route(("order-info"))]
         public async Task<IActionResult> OrderInfo(int userId)
         {
-            var query = new GetOrderByIdQuery { UserId = userId };
-            var data = await _mediator.Send(query);
-            return Ok(data);
+            //Write Your Code Here
+            throw new NotImplementedException();
         }
     }
 }

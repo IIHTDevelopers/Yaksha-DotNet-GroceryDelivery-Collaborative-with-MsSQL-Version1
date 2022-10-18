@@ -22,9 +22,8 @@ namespace GroceryDelivery.BusinessLayer.Features
         }
         public async Task<List<Product>> Handle(ProductQuery request, CancellationToken cancellationToken)
         {
-            var data = await _groceryServices.GetAllProduct();
-            return (List<Product>)data;
-
+            //Write Your Code Here
+            throw new NotImplementedException();
         }
     }
 

@@ -23,20 +23,8 @@ namespace GroceryDelivery.BusinessLayer.Features.Order.Commands.Create
 
         public async Task<ApplicationUser> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
         {
-            ApplicationUser user = new ApplicationUser()
-            {
-                UserId = request.UserId,
-                City = request.City,
-                State = request.State,
-                Email = request.Email,
-                HouseNo_Building_Name = request.HouseNo_Building_Name,
-                MobileNumber = request.MobileNumber,
-                Name = request.Name,
-                PinCode = request.PinCode,
-                Road_area = request.Road_area
-            };
-            var data = await _groceryServices.PlaceOrder(user);
-            return data;
+            //Write Your Code Here
+            throw new NotImplementedException();
         }        
     }
 }
